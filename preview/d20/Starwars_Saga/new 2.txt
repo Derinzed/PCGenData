@@ -1,0 +1,11 @@
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.${0}.TOTALHIT')}<br /></b></td>
+<@loop from=1 to=3 ; range1 , range1_has_next>
+	<#assign bonus = 1>
+	<#if (pcstring('WEAPON.${weap}.RANGELIST.${range1}.TOTALHIT')?number-((range1*range1)+1) > 0)>
+		<#assign bonus = '+'+(pcstring('WEAPON.${weap}.RANGELIST.${range1}.TOTALHIT')?number-((range1*range1)+1))?string>
+	</#if>
+     <td align="center" bgcolor="white" class="border7"><b>${bonus}<br /></b></td>
+	 <#assign count = count + 1>
+</@loop>
+
+pcstring('WEAPON.${weap}.RANGELIST.${range1}.TOTALHIT')?number-((range1*range1)+1)
